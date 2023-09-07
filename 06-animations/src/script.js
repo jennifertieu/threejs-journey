@@ -23,7 +23,12 @@ const sizes = {
 };
 
 // Camera
-const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height);
+const camera = new THREE.PerspectiveCamera(
+  75,
+  sizes.width / sizes.height,
+  1,
+  1000
+);
 camera.position.z = 3;
 scene.add(camera);
 
@@ -35,7 +40,12 @@ renderer.setSize(sizes.width, sizes.height);
 
 // const clock = new THREE.Clock(); // DO NOT USE Clock.getDelta()
 
-gsap.to(mesh.rotation, { duration: 10, y: Math.PI * 2, repeat: -1 });
+gsap.to(mesh.rotation, {
+  duration: 7,
+  y: Math.PI * 2,
+  repeat: -1,
+  ease: "none",
+});
 
 // Animations
 const tick = () => {
